@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Clock Out</title>
+
+</head>
+<body>
+
+
+<div class="container" style="padding-top: 15px">
+
+    <h2 class="h4 mb-4">Enter Time Out</h2>
+    <hr>
+
+    <form action="#" th:action="@{/saveTimeOut}"
+          th:object="${employee}" method="POST">
+
+        <!-- Add hidden form fields to handle update -->
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{name}"/>
+        <input type="hidden" th:field="*{email}"/>
+        <input type="hidden" th:field="*{timeIn}"/>
+        <input type="hidden" th:field="*{timeOut}">
+
+
+        <div class="col-md-4">
+            <label class="form-label">Name:</label>
+            <span type="text" th:text="${employee.name}" class="form-control" />
+        </div>
+
+        <br>
+
+        <div class="col-md-4">
+            <label class="form-label">Email:</label>
+            <span type="text" th:text="${employee.email}" class="form-control" />
+        </div>
+
+        <br>
+
+        <div class="col-md-4">
+            <label class="form-label">Time In:</label>
+            <span type="text" th:text="${employee.timeIn}" class="form-control" />
+        </div>
+
+        <br>
+
+        <div class="col-md-4">
+            <label class="form-label">Time Out:</label>
+            <span type="text" th:text="${employee.timeOut}" class="form-control" />
+        </div>
+
+        <br>
+        <button class="btn btn-primary" type="submit">Save</button>
+
+    </form>
+
+    <hr>
+    <div style="text-align: right">
+        <a class="btn btn-outline-info" role="button" th:href="@{/list}">Back to Employees List</a>
+    </div>
+</div>
+
+</body>
+</html>

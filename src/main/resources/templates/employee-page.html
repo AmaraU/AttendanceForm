@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Page</title>
+</head>
+<body>
+
+<div class="container" style="padding-left: 25px; padding-right: 25px">
+
+    <h1>Employee Attendance Info</h1>
+    <hr>
+
+    <h4>Name:</h4>
+    <p th:text="${employee.name}"/>
+    <br>
+
+    <h4>Email:</h4>
+    <p th:text="${employee.email}"/>
+    <br>
+
+    <h4>Time In:</h4>
+    <p th:text="${employee.timeIn}"/>
+    <br>
+
+    <div th:if="${employee.timeOut} != null">
+        <h4>Time Out:</h4>
+        <p th:text="${employee.timeOut}"/>
+    </div>
+
+    <br><br>
+    <hr>
+    <div style="text-align: right">
+        <a class="btn btn-outline-info" role="button" th:href="@{/list}">Back to Employees List</a>
+    </div>
+
+</div>
+</body>
+</html>
